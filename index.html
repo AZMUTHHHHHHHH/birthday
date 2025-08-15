@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Riddhi 💖</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(45deg, #ff6b9d, #ffd93d, #6bcf7f, #4d79ff);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            margin: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #ff6b9d, #ffd93d, #6bcf7f, #4d79ff);
+            z-index: -1;
+            border-radius: 27px;
+        }
+
+        h1 {
+            color: #e91e63;
+            margin-bottom: 30px;
+            font-size: 28px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        .question {
+            font-size: 24px;
+            color: #8e24aa;
+            margin-bottom: 30px;
+            font-weight: bold;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            border: none;
+            border-radius: 50px;
+            font-family: inherit;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 18px;
+            padding: 15px 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .yes-btn {
+            background: linear-gradient(45deg, #ff6b9d, #ff8fab);
+            color: white;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 107, 157, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 107, 157, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 107, 157, 0); }
+        }
+
+        .no-btn {
+            background: linear-gradient(45deg, #ffd93d, #ffe066);
+            color: #333;
+        }
+
+        .surprise-content {
+            display: none;
+            animation: slideIn 0.8s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .surprise-message {
+            background: linear-gradient(45deg, #ff6b9d, #4d79ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 20px;
+            line-height: 1.6;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+
+        .rating-container {
+            margin-top: 30px;
+            display: none;
+        }
+
+        .slider {
+            width: 100%;
+            height: 10px;
+            border-radius: 5px;
+            background: #ddd;
+            outline: none;
+            margin: 20px 0;
+            -webkit-appearance: none;
+        }
+
+        .slider::-webkit-slider-thumb {
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff6b9d, #4d79ff);
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .slider::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff6b9d, #4d79ff);
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .rating-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e91e63;
+            margin-top: 10px;
+        }
+
+        .hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: absolute;
+            color: #ff6b9d;
+            font-size: 20px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+
+        .unlock-btn {
+            background: linear-gradient(45deg, #6bcf7f, #4d79ff);
+            color: white;
+            font-size: 20px;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { box-shadow: 0 0 20px rgba(77, 121, 255, 0.5); }
+            to { box-shadow: 0 0 30px rgba(107, 207, 127, 0.8); }
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .celebration {
+            font-size: 30px;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts" id="hearts"></div>
+    
+    <div class="container">
+        <h1 id="title">💖 For My Sweetpotato Boondi Cutie Pookie ka Laddu - Riddhi 💖</h1>
+        
+        <div id="question-section">
+            <div class="question" id="question-text">Do you love me? 🥰</div>
+            <div class="buttons">
+                <button class="btn yes-btn" id="yes-btn">Yes! 😍</button>
+                <button class="btn no-btn" id="no-btn">No 😒</button>
+            </div>
+        </div>
+
+        <div id="surprise-section" class="surprise-content">
+            <div class="question">🤫 Click to unlock your birthday surprise! 💝</div>
+            <button class="unlock-btn" id="unlock-btn">Unlock Surprise 🎁</button>
+        </div>
+
+        <div id="birthday-section" class="surprise-content">
+            <div class="celebration">🎉</div>
+            <h2 style="color: #e91e63; margin: 20px 0;">Happy Birthday My Beautiful Riddhi! 🎂</h2>
+            <div class="surprise-message">
+                You're my sweetest Sweetpotato 🥔, my precious Boondi 🍬, 
+                my adorable Cutie 😘, and my favorite Pookie ka Laddu! 🥰
+                <br><br>
+                I'm so grateful to have you in my life! 💕 
+                May your birthday be filled with endless joy, laughter, 
+                sweet moments with me, and all your favorite desserts! 🍰✨
+                <br><br>
+                You make every day brighter just by being you! 🌟
+            </div>
+        </div>
+
+        <div class="rating-container" id="rating-section">
+            <div class="question">How much do you like me? 🥺💖</div>
+            <input type="range" min="0" max="100" value="50" class="slider" id="rating-slider">
+            <div class="rating-value" id="rating-value">50% ❤️</div>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            "Do you love me? 🥰",
+            "Do you want to go on a date with me? 💕",
+            "Will you pay all expenses on our first date? 😂💸",
+            "Am I your favorite Pookie ka Laddu forever? 🍬",
+            "Will you share your desserts with me? 🍰",
+            "Do you think I'm the cutest? 😊"
+        ];
+
+        let currentQuestionIndex = 0;
+        let noClickCount = 0;
+        let yesButtonSize = 18;
+        let noButtonSize = 18;
+
+        const questionText = document.getElementById('question-text');
+        const yesBtn = document.getElementById('yes-btn');
+        const noBtn = document.getElementById('no-btn');
+        const questionSection = document.getElementById('question-section');
+        const surpriseSection = document.getElementById('surprise-section');
+        const birthdaySection = document.getElementById('birthday-section');
+        const ratingSection = document.getElementById('rating-section');
+        const unlockBtn = document.getElementById('unlock-btn');
+        const ratingSlider = document.getElementById('rating-slider');
+        const ratingValue = document.getElementById('rating-value');
+
+        // Create floating hearts
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '💖';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDelay = Math.random() * 2 + 's';
+            heart.style.fontSize = (Math.random() * 10 + 15) + 'px';
+            document.getElementById('hearts').appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+        }
+
+        setInterval(createHeart, 800);
+
+        yesBtn.addEventListener('click', () => {
+            currentQuestionIndex++;
+            noClickCount = 0;
+            
+            // Reset button sizes
+            yesButtonSize = 18;
+            noButtonSize = 18;
+            yesBtn.style.fontSize = yesButtonSize + 'px';
+            noBtn.style.fontSize = noButtonSize + 'px';
+            noBtn.style.display = 'inline-block';
+
+            if (currentQuestionIndex < questions.length) {
+                questionText.textContent = questions[currentQuestionIndex];
+                questionText.style.animation = 'none';
+                questionText.offsetHeight; // Trigger reflow
+                questionText.style.animation = 'fadeIn 0.6s ease-in-out';
+            } else {
+                showSurpriseSection();
+            }
+        });
+
+        noBtn.addEventListener('click', () => {
+            noClickCount++;
+            
+            // Make yes button bigger and no button smaller
+            yesButtonSize += 4;
+            noButtonSize = Math.max(12, noButtonSize - 2);
+            
+            yesBtn.style.fontSize = yesButtonSize + 'px';
+            noBtn.style.fontSize = noButtonSize + 'px';
+            
+            // Shake the no button
+            noBtn.style.animation = 'shake 0.5s ease-in-out';
+            setTimeout(() => {
+                noBtn.style.animation = '';
+            }, 500);
+
+            if (noClickCount >= 4) {
+                noBtn.style.display = 'none';
+            }
+        });
+
+        function showSurpriseSection() {
+            questionSection.classList.add('hidden');
+            surpriseSection.style.display = 'block';
+        }
+
+        unlockBtn.addEventListener('click', () => {
+            surpriseSection.classList.add('hidden');
+            birthdaySection.style.display = 'block';
+            ratingSection.style.display = 'block';
+            
+            // Add more hearts for celebration
+            for (let i = 0; i < 10; i++) {
+                setTimeout(createHeart, i * 200);
+            }
+        });
+
+        ratingSlider.addEventListener('input', (e) => {
+            const value = e.target.value;
+            let emoji = '❤️';
+            
+            if (value >= 90) emoji = '😍💖✨';
+            else if (value >= 70) emoji = '😘💕';
+            else if (value >= 50) emoji = '😊❤️';
+            else if (value >= 30) emoji = '🙂💛';
+            else emoji = '😐💙';
+            
+            ratingValue.textContent = value + '% ' + emoji;
+            
+            if (value == 100) {
+                ratingValue.innerHTML = value + '% 🎉 PERFECT! You\'re the best! 🥰';
+                // Celebration animation
+                for (let i = 0; i < 15; i++) {
+                    setTimeout(createHeart, i * 100);
+                }
+            }
+        });
+
+        // Add shake animation for no button
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+                20%, 40%, 60%, 80% { transform: translateX(5px); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
